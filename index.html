@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap-Dashboard</title>
+    <title>Catalogo Libri</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="myscripts.js"></script>
     <style>
         .logo {
             height: 40px; 
@@ -16,33 +15,29 @@
         .navbar {
             background-color: #212529; /* Colore sfondo navbar */
             padding: 0.5rem 1rem;
-
         }
-
-        .bg-warning text-white{
-            color: white;
-        }
-        
-        
         .table-actions button {
             margin-right: 5px;
         }
-        .section-title {
-            font-weight: bold;
-            margin-bottom: 10px;
+        .section-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            height: 100%;
         }
+
+
+        
     </style>
 </head>
-
 <body>
+    <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <!-- Logo e titolo -->
             <a href="#" class="d-flex align-items-center text-white text-decoration-none">
                 <img src="duck.png" alt="Logo" class="logo me-2">
                 <span class="navbar-brand mb-0 h5">Catalogo Libri</span>
             </a>
-            <!-- Navbar Links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Anagrafica Utenti</a>
@@ -53,9 +48,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Help</a>
                 </li>
-            </ul>-->
-    
-            <!-- Barra di ricerca -->
+            </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Cerca..." aria-label="Cerca">
                 <button class="btn btn-outline-light" type="submit">Cerca</button>
@@ -63,19 +56,15 @@
         </div>
     </nav>
 
-     <!-- Container principale -->
-     <div class="container mt-4">
+    <!-- Container principale -->
+    <div class="container mt-4">
         <div class="row">
             <!-- Sezione principale: Tabella -->
             <div class="col-md-8">
                 <h2 class="mb-3">Catalogo Libri</h2>
-                <!-- Bottone Aggiungi Libro -->
                 <div class="text-end mb-2">
-                    <button class="btn btn-primary">
-                       Aggiungi Libro
-                    </button>
+                    <button class="btn btn-primary">Aggiungi Libro</button>
                 </div>
-                <!-- Tabella -->
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -203,7 +192,84 @@
                                 <button class="btn btn-sm btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
                             </td>
                         </tr>
+                    </tbody>
+                </table>
+            </div>
+
+              <!-- Sidebar sulla destra: Todo e FAQ -->
+              <div class="col-md-4">
+                
+                <div class="mt-5"></div>
+
+                <!-- Sezione Todo -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Todo</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <input class="form-check-input me-2" type="checkbox">Chiamare segreteria
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input me-2" type="checkbox">Mandare avvisi prestiti scaduti
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input me-2" type="checkbox">Ordinare nuovi libri
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Sezione FAQ -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">F.A.Q.</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="faqOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        Come aggiungere un nuovo<br>
+                                         libro?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="faqOne" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Vai alla sezione "Aggiungi Libro" e compila il modulo.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="faqTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Come posso accedere<br>
+                                        all'anagrafica utenti?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="faqTwo" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Usa il link "Anagrafica Utenti" nel menu principale.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="faqThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Posso usare questa<br>
+                                         dashboard da mobile?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="faqThree" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Sì, la dashboard è completamente responsiva e ottimizzata per dispositivi mobili.
+                                    </div>
+                                </div>
+            
 
     
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
